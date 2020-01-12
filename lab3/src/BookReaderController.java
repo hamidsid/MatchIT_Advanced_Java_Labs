@@ -33,32 +33,31 @@ public class BookReaderController extends Application {
 
         FileChooser fileChooser = new FileChooser();
 
-        Scanner s = new Scanner(new File("nilsholg.txt"));
-        s.findWithinHorizon("\uFEFF", 1);
-        s.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+"); // se handledning
+        Scanner useful_words = new Scanner(new File("nilsholg.txt"));
+        useful_words.findWithinHorizon("\uFEFF", 1);
+        useful_words.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+"); // se handledning
 
-        Scanner ss = new Scanner(new File("undantagsord.txt"));
-        ss.findWithinHorizon("\uFEFF", 1);
-        ss.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+");
+        Scanner useless_words = new Scanner(new File("undantagsord.txt"));
+        useless_words.findWithinHorizon("\uFEFF", 1);
+        useless_words.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+");
 
-        Set<String> stopWords = new HashSet<>();
-        while (ss.hasNext()) {
-            String word = ss.next().toLowerCase();
-            stopWords.add(word);
+        Set<String> exceptions = new HashSet<>();
+        while (useless_words.hasNext()) {
+            String word = useless_words.next().toLowerCase();
+            exceptions.add(word);
         }
-        ss.close();
-        GeneralWordCounter generalWordCounter = new GeneralWordCounter(stopWords);
-        while (s.hasNext()) {
-            String word = s.next().toLowerCase();
+        useless_words.close();
+        GeneralWordCounter generalWordCounter = new GeneralWordCounter(exceptions);
+        while (useful_words.hasNext()) {
+            String word = useful_words.next().toLowerCase();
             generalWordCounter.process(word);
         }
-        s.close();
+        useful_words.close();
 
 
         ObservableList<Map.Entry<String, Integer>> words =
                 FXCollections.observableArrayList(generalWordCounter.getWords());
-        ListView<Map.Entry<String, Integer>> listView = new
-                ListView<Map.Entry<String, Integer>>(words);
+        ListView<Map.Entry<String, Integer>> listView = new ListView<Map.Entry<String, Integer>>(words);
 
 
         BorderPane root = new BorderPane();
