@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Eight_Queen/Eight_Queen.iml" filepath="$PROJECT_DIR$/Eight_Queen/Eight_Queen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RC_Cars/RC_Cars.iml" filepath="$PROJECT_DIR$/RC_Cars/RC_Cars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Skymill/Skymill.iml" filepath="$PROJECT_DIR$/Skymill/Skymill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Trees_Exercises/Trees_Exercises.iml" filepath="$PROJECT_DIR$/Trees_Exercises/Trees_Exercises.iml" />
       <module fileurl="file://$PROJECT_DIR$/banktest/banktest.iml" filepath="$PROJECT_DIR$/banktest/banktest.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab1/lab1.iml" filepath="$PROJECT_DIR$/lab1/lab1.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab2/lab2.iml" filepath="$PROJECT_DIR$/lab2/lab2.iml" />
